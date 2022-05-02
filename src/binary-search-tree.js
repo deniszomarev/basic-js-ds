@@ -55,24 +55,61 @@ class BinarySearchTree {
     }
   }
 
-  find(/* data */) {
-    throw new NotImplementedError("Not implemented");
-    // remove line with error and write your code here
+  find(data) {
+    return findNode(data, this.tree);
+    function findNode(data, node) {
+      if (!node) {
+        return null;
+      }
+      if (node.data == data) {
+        return node;
+      }
+      if (node.data > data) {
+        return findNode(data, node.left);
+      } else {
+        return findNode(data, node.right);
+      }
+    }
   }
 
-  remove(/* data */) {
-    throw new NotImplementedError("Not implemented");
-    // remove line with error and write your code here
+  remove(data) {
+    return removeData(data, this.tree);
+    function removeData(data, node) {
+      // if (!node) {
+      //   return;
+      // }
+      // if (node.data == data) {
+      //   node = null;
+      //   return;
+      // }
+      // if (node.data > data) {
+      //   return removeData(data, node);
+      // } else {
+      //   return removeData(data, node);
+      // }
+    }
   }
 
   min() {
-    throw new NotImplementedError("Not implemented");
-    // remove line with error and write your code here
+    return findMin(this.tree);
+    function findMin(node) {
+      if (node.left) {
+        return findMin(node.left);
+      } else {
+        return node.data;
+      }
+    }
   }
 
   max() {
-    throw new NotImplementedError("Not implemented");
-    // remove line with error and write your code here
+    return findMax(this.tree);
+    function findMax(node) {
+      if (node.right) {
+        return findMax(node.right);
+      } else {
+        return node.data;
+      }
+    }
   }
 }
 
